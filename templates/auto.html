@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Automatic Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Auto Search</h1>
+    <form method="post" action="/find">
+        <label for="food">Food Name</label><br>
+        <input type="text" name="food" id="food"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

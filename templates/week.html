@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Your Weekly Log</h1>
+    {% if days_total > 0 %}
+        <table>
+            <thead>
+            <tr><td>Weekday</td><td>Calories</td></tr>
+            </thead>
+            <tbody>
+            {% for row in days %}
+                <tr><td>{{ row[1] }}</td><td>{{ row[2] }}</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h1>No Week Entries</h1>
+    {% endif %}
+
+</body>
+</html>

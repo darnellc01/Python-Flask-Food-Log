@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Food Log</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Food Entries</h1>
+    <a href="{{ url_for('index') }}">Back to Form</a>
+    {% if amount != 0 %}
+        <table>
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>name</td>
+                    <td>calories</td>
+                    <td>protein</td>
+                    <td>fat</td>
+                    <td>carbs</td>
+                </tr>
+            </thead>
+            <tbody>
+        {% for row in entries %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+            </tr>
+        {% endfor %}
+            </tbody>
+            <tfoot>
+            <tr><td colspan="6">Calories: {{ total }}</td></tr>
+            <tr><td colspan="6" id="rem">Remaining: {{ 2000 - total }}</td></tr>
+            </tfoot>
+        </table>
+    {% else %}
+        <h1>No Entries Yet!</h1>
+    {% endif %}
+
+</body>
+</html>

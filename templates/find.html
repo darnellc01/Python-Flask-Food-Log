@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Your Results</h1>
+    <form method="post" action="/add">
+    {% for item in choices %}
+        <label>{{ item['fields']['item_name'] + '-' + item['fields']['brand_name'] }}</label>
+        <input type="radio" name="item_type" id="{{ item['fields']['item_name'] + '-' + item['fields']['brand_name'] }}" value="{{ item['fields']['item_name'] + '-' + item['fields']['brand_name'] }}"><br>
+    {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

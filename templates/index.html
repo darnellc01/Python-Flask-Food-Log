@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Food Tracker</h1><br>
+    <h3><a href="{{ url_for('log') }}">View Food Log</a></h3>
+    <h3><a href="{{ url_for('auto') }}">Automatic Search</a></h3>
+    <h2>Input Below</h2>
+    {% if complete == True %}
+        <h3>Food Log Updated</h3>
+    {% endif %}
+    <form action="/" method="post">
+        <label for="food">Name of Food:</label><br>
+        <input type="text" name="food" id="food"><br>
+        <label for="calories">Amount of Calories</label><br>
+        <input type="number" name="calories" id="calories"><br>
+        <label for="protein">Amount of Protein</label><br>
+        <input type="number" name="protein" id="protein"><br>
+        <label for="fat">Amount of Fat</label><br>
+        <input type="number" name="fat" id="fat"><br>
+        <label for="carbs">Amount of Carbs</label><br>
+        <input type="number" name="carbs" id="carbs"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <h3>Most recommend 2,000 calories a day</h3>
+</body>
+</html>
